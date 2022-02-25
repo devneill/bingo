@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { phrases } from './phrases';
+import _shuffle from 'lodash/shuffle';
 
 function calculateWins(boxes) {
   const combos = [
@@ -30,13 +31,6 @@ function calculateWins(boxes) {
   return wins;
 }
 
-function randomize(array) {
-  for (let i = 0; i < array.length; i++) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
 export function Bingo() {
   const initialState = [...Array(12).fill(null), true, ...Array(12).fill(null)];
   const [boxes, setBoxes] = useState(initialState);
@@ -49,13 +43,15 @@ export function Bingo() {
     setBoxes(boxesCopy);
   };
 
+  const shuffledPhrases = useMemo(() => _shuffle(phrases), []);
+
   return (
-    <>
+    <div>
       <h1> Wins: {wins}</h1>
       <div
         className={wins !== 0 ? 'BingoBoard BingoBoard__winner' : 'BingoBoard'}
       >
-        {randomize(phrases).map((phrase, i) => (
+        {shuffledPhrases.map((phrase, i) => (
           <button
             key={phrase}
             className={boxes[i] ? 'BingoBox BingoBox__selected' : 'BingoBox'}
@@ -65,6 +61,6 @@ export function Bingo() {
           </button>
         ))}
       </div>
-    </>
+    </div>
   );
 }
