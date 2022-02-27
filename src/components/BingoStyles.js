@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import '../assets/animation.css';
+
+export const Layout = styled.div`
+  margin: auto;
+  width: 80%;
+  height: 80%;
+`;
 
 export const BingoBoard = styled.div`
   display: grid;
@@ -15,7 +20,7 @@ export const BingoBoard = styled.div`
 `;
 
 export const BingoBox = styled.button`
-  padding: 2vmax;
+  padding: 1vmin;
   border: 1px solid;
   font-size: 3vmin;
   cursor: pointer;

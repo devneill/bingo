@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Layout } from './AppStyles';
+import { Container } from './AppStyles';
 import { Bingo } from './components/Bingo';
 
 function calculateWins(boxes) {
@@ -42,9 +42,9 @@ function App() {
   const wins = calculateWins(boxes);
 
   return (
-    <Layout wins={wins}>
+    <Container wins={wins}>
       <Bingo boxes={boxes} setBoxes={setBoxes} wins={wins} />
-    </Layout>
+    </Container>
   );
 }
 

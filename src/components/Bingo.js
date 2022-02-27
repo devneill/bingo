@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import _shuffle from 'lodash/shuffle';
 
 import { phrases } from '../assets/phrases';
-import { BingoBoard, BingoBox } from './BingoStyles';
+import { Layout, BingoBoard, BingoBox } from './BingoStyles';
 
 export function Bingo({ boxes, setBoxes, wins }) {
   const shuffledPhrases = useMemo(() => _shuffle(phrases), []);
@@ -14,7 +14,7 @@ export function Bingo({ boxes, setBoxes, wins }) {
   };
 
   return (
-    <div>
+    <Layout>
       <h1> Wins: {wins}</h1>
       <BingoBoard>
         {shuffledPhrases.map((phrase, i) => (
@@ -28,6 +28,6 @@ export function Bingo({ boxes, setBoxes, wins }) {
           </BingoBox>
         ))}
       </BingoBoard>
-    </div>
+    </Layout>
   );
 }

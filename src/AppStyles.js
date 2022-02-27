@@ -32,10 +32,10 @@ const chooseBackground = ({ wins }) => {
   }
 };
 
-export const Layout = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: ${chooseBackground}};
+  background: ${chooseBackground};
 `;
