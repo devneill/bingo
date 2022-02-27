@@ -26,5 +26,8 @@ Run `npm test` to start the tests in you command line.
 - Add visual end-to-end tests with `Cypress`
 - improve the integration tests with`@testing-library/react`
 - Add unit tests for the functions
+- fix bingo box dimensions
+- improve responsiveness for phone
+- improve cross browser compatibility
 - fix animations
 - lock "Never gonna" to consistently be the center square and make it not clickable
