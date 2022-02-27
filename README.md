@@ -4,7 +4,7 @@
 
 ## How to play
 
-Visit ``
+Visit `https://bingo-red.vercel.app/`
 
 Or
 
