@@ -2,7 +2,7 @@
 
 "We know the game and we're gonna play it" - Rick Astley
 
-## How to play
+### How to play
 
 Visit `https://bingo-red.vercel.app/`
 
@@ -11,18 +11,18 @@ Or
 Run `npm start`
 
 
-## How to test
+### How to test
 
 Run `npm test` to start the tests in you command line.
 
 
-# Decisions Made
+## Decisions Made
 
 - `styled-components` was added as a dependency to enable style changes based on component props
 - `lodash` was used for its `_shuffle` method to randomise the bingo boxes.
 - `@testing-library/react` was used for testing
 
-# Next steps
+## Next steps
 - Add visual end-to-end tests with `Cypress`
 - improve the integration tests with`@testing-library/react`
 - Add unit tests for the functions
