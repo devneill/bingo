@@ -1,33 +1,33 @@
-import './App.css';
-import { useState, useMemo } from 'react';
-import { phrases } from './phrases';
+import { useMemo } from 'react';
 import _shuffle from 'lodash/shuffle';
+
+import { phrases } from '../assets/phrases';
+import { BingoBoard, BingoBox } from './BingoStyles';
 
 export function Bingo({ boxes, setBoxes, wins }) {
   const shuffledPhrases = useMemo(() => _shuffle(phrases), []);
 
   const selectBox = (box) => {
     const boxesCopy = [...boxes];
-    boxesCopy[box] = true;
+    boxesCopy[box] = !boxesCopy[box];
     setBoxes(boxesCopy);
   };
 
   return (
     <div>
       <h1> Wins: {wins}</h1>
-      <div
-        className={wins !== 0 ? 'BingoBoard BingoBoard__winner' : 'BingoBoard'}
-      >
+      <BingoBoard>
         {shuffledPhrases.map((phrase, i) => (
-          <button
+          <BingoBox
             key={phrase}
-            className={boxes[i] ? 'BingoBox BingoBox__selected' : 'BingoBox'}
+            position={i}
+            selected={boxes[i]}
             onClick={() => selectBox(i)}
           >
             {phrase}
-          </button>
+          </BingoBox>
         ))}
-      </div>
+      </BingoBoard>
     </div>
   );
 }
